@@ -19,13 +19,23 @@ This project addresses a critical challenge in financial institutions: predictin
 ## Repository Structure
 
 ```
-├── data/                          # Dataset reference / data loading scripts
+Loan-Default-Risk-Prediction/
+│
+├── data/
+│ └── README.txt
+│
+├── models/
+│ ├── loan_default_model.pkl
+│ └── scaler.pkl
+│
 ├── notebooks/
-│   ├── 01_eda_hypothesis_testing.ipynb    # EDA and hypothesis testing
-│   └── 02_model_building_evaluation.ipynb # Model training and evaluation
+│ └── 01_EDA.ipynb
+│
 ├── reports/
-│   ├── research_report.pdf                # Credit risk research report
-│   └── action_plan.pdf                    # Project planning document
+│ ├── Research_Report_Credit_Risk.pdf
+│ ├── Project_Action_Plan.pdf
+│ └── Project_Presentation.pptx
+│
 ├── README.md
 ├── requirements.txt
 └── .gitignore
@@ -44,10 +54,23 @@ Kaggle Dataset:
 https://www.kaggle.com/datasets/wordsforthewise/lending-club
 
 ### Dataset Overview
-- Format: CSV
-- Type: Structured financial tabular data
-- Level: Borrower-level observations
-- Target Variable: `loan_status` (Default / Non-Default)
+### Dataset Overview
+
+- Total observations used for modeling: **44,006**
+- Train set size: **35,204**
+- Test set size: **8,802**
+- Number of features after preprocessing: **16**
+- Data type: Structured tabular financial data
+- Target variable: `loan_status` (Binary classification: Default vs Non-Default)
+
+The original dataset contains multiple loan status categories such as:
+- Fully Paid
+- Charged Off
+- Current
+- Late (31–120 days)
+- In Grace Period
+
+For modeling purposes, the problem was simplified into a binary classification task distinguishing **Default vs Non-Default** borrowers.
 
 ### Feature Categories
 
@@ -75,7 +98,7 @@ To reproduce this project:
 
 1. Download the dataset from the Kaggle link above.
 2. Extract the CSV file.
-3. Place it inside the `data/` directory as:
+3. Place it inside the `data/` directory as: data/loan_data.csv
 
 ---
 
@@ -150,13 +173,11 @@ The EDA notebook covers:
 
 ## Key Findings
 
-> *(To be updated after completing analysis)*
-
-- Loan grade and interest rate are strong predictors of default
-- Lower credit scores correlate significantly with higher default rates
-- Logistic Regression achieves baseline accuracy of ~XX% with recall of ~XX%
-- Class imbalance (fewer defaults than non-defaults) impacts model performance
-
+- Loan grade and interest rate show strong correlation with default probability.
+- Borrowers with lower credit scores demonstrate higher default likelihood.
+- Class imbalance is present in the dataset, with non-default cases significantly outnumbering default cases.
+- Logistic Regression was implemented as the baseline model for interpretability and probability estimation.
+- Model performance evaluation was conducted using accuracy, precision, recall, and confusion matrix analysis.
 ---
 
 ## Model Limitations & Responsible Use
@@ -166,6 +187,9 @@ The EDA notebook covers:
 - **False prediction consequences:** Incorrectly denying credit to a creditworthy borrower (false positive) or approving a defaulter (false negative) both carry real-world costs
 - **Regulatory considerations:** Models used in lending must comply with regulations such as the Equal Credit Opportunity Act (ECOA) and Fair Housing Act
 - **Human oversight:** Predictive models should assist, not replace, human credit officers — final lending decisions must involve human judgment
+
+The dataset exhibits class imbalance, with non-default loans significantly outnumbering default loans. 
+This imbalance impacts model performance and requires careful evaluation using recall and confusion matrix analysis.
 
 ---
 
