@@ -35,17 +35,47 @@ This project addresses a critical challenge in financial institutions: predictin
 
 ## Dataset Description
 
-The dataset contains borrower-level information from a lending platform, including:
+The dataset used in this project is sourced from the **Lending Club Loan Dataset** available on Kaggle.
 
-- **Borrower demographics:** Income, employment length, home ownership
-- **Loan characteristics:** Loan amount, interest rate, loan grade, loan term
-- **Credit history:** Credit score, number of credit lines, derogatory marks
-- **Target variable:** Loan status (Default / Non-Default)
+It contains borrower-level financial and loan information used to predict loan default risk.
 
-> **Dataset Reference:** 
-Dataset Source: Kaggle
-Dataset Link:
-https://www.kaggle.com/datasets/wordsforthewise/lending-club/code
+### Dataset Source
+Kaggle Dataset:  
+https://www.kaggle.com/datasets/wordsforthewise/lending-club
+
+### Dataset Overview
+- Format: CSV
+- Type: Structured financial tabular data
+- Level: Borrower-level observations
+- Target Variable: `loan_status` (Default / Non-Default)
+
+### Feature Categories
+
+1. **Borrower Demographics**
+   - Annual income
+   - Employment length
+   - Home ownership status
+
+2. **Loan Characteristics**
+   - Loan amount
+   - Interest rate
+   - Loan grade
+   - Loan term
+
+3. **Credit History**
+   - Credit score
+   - Number of credit lines
+   - Derogatory marks
+
+### Important Note
+
+The dataset file is not included in this repository due to GitHub file size limitations.
+
+To reproduce this project:
+
+1. Download the dataset from the Kaggle link above.
+2. Extract the CSV file.
+3. Place it inside the `data/` directory as:
 
 ---
 
